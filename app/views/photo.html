@@ -1,4 +1,4 @@
 <div class="pin">
   <img ng-src="http://farm{{photo.farm-id}}.staticflickr.com/{{photo.server-id}}/{{photo.id}}_{{photo.secret}}.jpg"/>
-  <p><a href="http://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}">{{ photo.title | uppercase }}</a></p>
+  <p><a ng-href="http://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}">{{ photo.title | upp }}</a></p>
 </div>

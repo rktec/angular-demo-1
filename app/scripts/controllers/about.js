@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularTestApp')
-    .controller('AboutCtrl', function($scope, $http, $routeParams, flickrAPI) {
+    .controller('AboutCtrl', function($scope, $routeParams, $location, flickrAPI) {
       $scope.currentTab = 'about';
 
       $scope.filterTitle = function(photo) {
@@ -12,10 +12,12 @@ angular.module('angularTestApp')
       $scope.tag = $routeParams.id;
 
       $scope.search = function () {
-        if (!$scope.tag) return;
-
         // this shows the waiting
         $scope.photos = undefined;
+
+        if (!$scope.tag) return;
+
+        $location.path('/about/' + $scope.tag);
 
         flickrAPI.getClusterPhotos($scope.tag, function(photos) {
           $scope.photos = photos;

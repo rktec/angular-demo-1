@@ -8,6 +8,7 @@ angular.module('angularTestApp')
         var apiUrl = 'http://api.flickr.com/services/rest/?method=flickr.tags.getClusterPhotos&api_key=' + key +
             '&tag=' + tag;
         $http({method: 'JSONP', url: apiUrl + '&format=json&jsoncallback=JSON_CALLBACK'}).success(function(data) {
+          console.log(data);
           callback(data.photos.photo);
         });
       }

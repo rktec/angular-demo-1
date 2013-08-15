@@ -20,13 +20,13 @@
 
     <div class="col-12">
       <div class="well" ng-show="(!photos && tag)">Search for photos with tag [<code>{{ tag }}</code>] ...</div>
-      <div class="well" ng-show="query">Filtering for <code>{{ query }}</code> ...</div>
+      <div class="well" ng-hide="!query">Filtering for <code>{{ query }}</code> ...</div>
     </div>
 
     <!--<photo photo="currentTab"></photo>-->
     <div class="col-12">
       <div id="columns">
-        <photo photo="p" ng-repeat="p in photos | filter:filterTitle "/>
+        <photo photo="p" ng-repeat="p in photos | filter:filterTitle"/>
       </div>
     </div>
   </div>
