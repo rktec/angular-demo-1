@@ -1,17 +1,21 @@
 <navbar></navbar>
 <div class="container">
   <div class="row">
-    <div class="col-8">
-      <p>Hi, my name is <b>Rakuraku Jyo</b> Here's my favorite photos from flickr</p>
-
-      <p ng-show="query">Searching for <code>{{ query }}</code> ...</p>
-    </div>
     <form class="form-inline col-4">
       <div class="form-group">
         <label for="photoTitle">Photo Title</label>
         <input type="text" class="form-control" id="photoTitle" ng-model="query" placeholder="Enter photo title">
       </div>
     </form>
+    <div class="col-8">
+      <p>Hi, my name is <b>Rakuraku Jyo</b> Here's my favorite photos from flickr</p>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="well" ng-hide="photos">Loading photo from flickr ...</div>
+    <div class="well" ng-show="query">Searching for <code>{{ query }}</code> ...</div>
   </div>
 
   <div id="columns" class="row">
