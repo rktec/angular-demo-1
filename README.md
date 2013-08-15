@@ -1,15 +1,19 @@
+# Angular Demo
+
+## Topics in the demo
+
 1. install necessary libraries
 
         npm install -g yo bower grunt
         npm install -g generator-angular     #https://github.com/yeoman/generator-angular
         yo angular
         grunt server
-    
+
 2. create a route
 
         yo angular:route about
         http://localhost:9000/#/about
-    
+
     a. add a link to about page
     b. more about routing
 
@@ -24,9 +28,7 @@
 9. expose a function to view
 
 
-### what's more
+## What's more
+
 * testing
 * event
-
- 
-   
