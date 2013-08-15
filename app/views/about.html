@@ -1,28 +1,33 @@
-<navbar></navbar>
+<div data-ng-include data-src="'/views/nav.html'"></div>
 <div class="container">
   <div class="row">
-    <form class="form-inline col-4">
-      <div class="form-group">
-        <label for="photoTitle">Photo Title</label>
-        <input type="text" class="form-control" id="photoTitle" ng-model="query" placeholder="Enter photo title">
-      </div>
-    </form>
-    <div class="col-8">
+    <div class="col-12">
       <p>Hi, my name is <b>Rakuraku Jyo</b> Here's my favorite photos from flickr</p>
-
     </div>
-  </div>
+    <div class="col-12">
+      <form class="form-inline">
+        <div class="form-group">
+          <label class="sr-only" for="photoTag">Photo Tag</label>
+          <input type="text" class="form-control" id="photoTag" ng-model="tag" placeholder="Search photo by tag">
+        </div>
+        <button type="submit" class="btn btn-default" data-ng-click="search()">Search</button>
+        <div class="form-group pull-right">
+          <label class="sr-only" for="photoTitle">Photo Title</label>
+          <input type="text" class="form-control" id="photoTitle" ng-model="query" placeholder="Filter photo by title">
+        </div>
+      </form>
+    </div>
 
-  <div class="row">
-    <div class="well" ng-hide="photos">Loading photo from flickr ...</div>
-    <div class="well" ng-show="query">Searching for <code>{{ query }}</code> ...</div>
-  </div>
+    <div class="col-12">
+      <div class="well" ng-show="(!photos && tag)">Search for photos with tag [<code>{{ tag }}</code>] ...</div>
+      <div class="well" ng-show="query">Filtering for <code>{{ query }}</code> ...</div>
+    </div>
 
-  <div id="columns" class="row">
-    <div class="pin" ng-repeat="photo in photos | filter:filterTitle ">
-      <img ng-src="http://farm{{photo.farm-id}}.staticflickr.com/{{photo.server-id}}/{{photo.id}}_{{photo.secret}}.jpg">
-
-      <p>{{ photo.title }}</p>
+    <!--<photo photo="currentTab"></photo>-->
+    <div class="col-12">
+      <div id="columns">
+        <photo photo="p" ng-repeat="p in photos | filter:filterTitle "/>
+      </div>
     </div>
   </div>
 </div>

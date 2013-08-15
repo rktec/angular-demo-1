@@ -7,7 +7,7 @@ angular.module('angularTestApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
+      .when('/about/:id', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
